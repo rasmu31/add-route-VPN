@@ -16,5 +16,5 @@ The XML task is available on the repository as add-route-VPN-task.xml, you'll ne
 Maybe yours is "Unidentified network". If it's the case like it was for me, you can change the VPN network name by editing temporarily firewall settings where you have to uncheck your VPN adapter in protected network connections list for the according profile, at this moment the vpn network wont'be unidentified anymore.
 Then, change the network name in secpol.msc and you can re-enable the parameter in firewall settings.
 
-The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself gathered by a cron on my raspberrypi), check if the route exists and add the route to my WAN IP through my local interface (192.168.1.1), then finally write WAN IP 
+The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself gathered by a cron on my raspberrypi), check if the route already exists and add the route to my WAN IP through my local interface (192.168.1.1).
 I also transformed powershell code in an executable with ps2exe with args noConsole noError NoOutput noVisualStyles in order to avoid the console window when the task starts.
