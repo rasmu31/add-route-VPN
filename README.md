@@ -16,7 +16,7 @@ EventID 10000 is triggered when any network adapter connects so we need to filte
 The XML task is available on the repository as add-route-VPN.xml, you'll need to change the network name (mine is ExpressVPN).
 Maybe yours is "Unidentified network". If it's the case like it was for me, you can change the VPN network name by editing temporarily firewall settings where you have to uncheck your VPN adapter in protected network connections list for the according profile, at this moment the vpn network wont'be unidentified anymore.
 Then, change the network name in secpol.msc and you can re-enable the parameter in firewall settings.
-You need to edit the path to the file executing changes to your route table in <command> tag.
+You need to edit the path to the file executing changes to your route table in command tag.
 
 The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself updated by a cron on my raspberrypi), delete the existing route if it exists and add the route to my WAN IP through my gateway (192.168.1.1).
 I also transformed powershell code in an executable with ps2exe with args noConsole noError NoOutput noVisualStyles in order to avoid the console window when the task starts.
