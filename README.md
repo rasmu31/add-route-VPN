@@ -9,7 +9,7 @@ Problem :
 When my computer is connected to my VPN, it even uses the VPN connection when I need to contact a home service configured with domain.tld.
 
 Solution :
-I use OpenVPNGui to connect to my VPN provider.
+I use OpenVPN Gui to connect to my VPN provider.
 When it connects to the VPN, an event is triggered in eventviewer in System->Microsoft-Windows-NetworkProfile and the EventID is 10000.
 EventID 10000 is triggered when any network adapter connects so we need to filter on VPN adapter, we'll do it in Task parameters.
 
@@ -17,7 +17,7 @@ The XML task is available on the repository as add-route-VPN-task.xml, you'll ne
 Maybe yours is "Unidentified network". If it's the case like it was for me, you can change the VPN network name by editing temporarily firewall settings where you have to uncheck your VPN adapter in protected network connections list for the according profile, at this moment the vpn network wont'be unidentified anymore.
 Then, change the network name in secpol.msc and you can re-enable the parameter in firewall settings.
 
-The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself updated by a cron on my raspberrypi), delete the existing route (I don't test if it exists) and add the route to my WAN IP through my local interface (192.168.1.1).
+The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself updated by a cron on my raspberrypi), delete the existing route if it exists and add the route to my WAN IP through my local interface (192.168.1.1).
 I also transformed powershell code in an executable with ps2exe with args noConsole noError NoOutput noVisualStyles in order to avoid the console window when the task starts.
 
 For your needs, you can ditch the first 8 lines in powershell code and replace $record_result.result.content by your IP.
