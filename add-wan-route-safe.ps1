@@ -9,6 +9,10 @@ $record_result = invoke-restmethod -method get -uri "https://api.cloudflare.com/
 $ip = $record_result.result.content
 $gateway = "192.168.1.1"
 
+# If you need to specify the interface, get interface id with netsh interface ipv4 show interfaces 
+# $interface = 8
+# At the end of route -p add command, add IF $interface
+
 try {
 	Get-NetRoute -DestinationPrefix "$ip/32" -ErrorAction Stop
 	if ($?) {
