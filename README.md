@@ -1,4 +1,5 @@
-Add automatically a route through your local interface to your WAN IP when tour VPN starts. Useful if you're using you VPN connection to reach local services by your WAN IP or external DNS because you could suffer from low speed. In my context, I update my WAN IP every 5 min against Cloudflare DNS API, so in this project I gather my WAN IP from Cloudflare using their API.
+Add automatically a route through your local interface to your WAN IP when your VPN starts (or other network connection).
+Useful if you're using you VPN connection to reach local services by your WAN IP or external DNS because you could suffer from low speed. In my context, I update my WAN IP every 5 min against Cloudflare DNS API, so in this project I gather my WAN IP from Cloudflare using their API.
 
 Context :
 I have a web service on my raspberrypi at home accessible with domain.tld, domain.tld pointing to my WAN IP thanks to Cloudflare.
