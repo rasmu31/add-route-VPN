@@ -7,7 +7,7 @@ $record=""
 
 $record_result = invoke-restmethod -method get -uri "https://api.cloudflare.com/client/v4/zones/$zone/dns_records/$record" -Headers $Headers
 $ip = $record_result.result.content
-$interface = "192.168.1.1"
+$gateway = "192.168.1.1"
 
 try {
 	Get-NetRoute -DestinationPrefix "$ip/32" -ErrorAction Stop
@@ -19,4 +19,4 @@ catch {
 	
 }
 
-route -p add $ip mask 255.255.255.255 $interface
+route -p add $ip mask 255.255.255.255 $gateway
