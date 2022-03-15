@@ -23,4 +23,4 @@ Then, change the network name in secpol.msc and you can re-enable the parameter 
 The powershell code gathers my WAN IP from Cloudflare DNS API (my WAN IP is itself updated by a cron on my raspberrypi), delete the existing route if it exists and add the route to my WAN IP through my gateway (192.168.1.1).
 I also transformed powershell code in an executable with ps2exe with args noConsole noError NoOutput noVisualStyles in order to avoid the console window when the task starts.
 
-=> For your needs, you can ditch the first 8 lines in powershell code and replace $record_result.result.content by your IP.
+=> For your needs, you can ditch the first 8 lines in powershell code and replace $record_result.result.content by your IP and $gateway by your gateway IP.
