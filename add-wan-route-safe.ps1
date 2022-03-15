@@ -9,12 +9,14 @@ $record_result = invoke-restmethod -method get -uri "https://api.cloudflare.com/
 $ip = $record_result.result.content
 
 try {
-	Get-NetRoute -DestinationPrefix "$ip/32"
-	route delete $ip/32
-	route -p add $ip mask 255.255.255.255 192.168.1.1
+	Get-NetRoute -DestinationPrefix "$ip/32" -ErrorAction Stop
+	if ($?) {
+		route delete $ip/32
+	}
 }
 catch {
 	
 }
 
+route -p add $ip mask 255.255.255.255 192.168.1.1
 
